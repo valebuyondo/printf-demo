@@ -1,2 +1,2 @@
-# printf
-ALX_printf
+# printf_demo
+printf demo
