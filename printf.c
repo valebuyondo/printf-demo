@@ -1,65 +1,56 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
-/**
- * _printf - prints out output to the console
- * @format: string formatter
- * Return: returns the number of arguments passed
- */
-
 int _printf(const char *format, ...)
 {
-	int i;
-	int j;
-	int len = 0;
-	va_list arg_list;
+    va_list arg_list;
+    va_start(arg_list, format);
 
-	va_start(arg_list, format);
-	for (i = 0; format[i] != '\0'; i++)
-	{
-		if (format[i] == '\0')
-			break;
-		if (format[i] == '%')
-		{
-			i++;
-			if (format[i] == 's')
-			{
-				char *str;
+    int chars_printed = 0;
 
-				str = va_arg(arg_list, char *);
-				for (j = 0; str[j] != '\0'; j++)
-				{
-					_putchar(str[j]);
-					len++;
-				}
-			}
-			if (format[i] == 'c')
-			{
-				int character;
-				character = va_arg(arg_list, int);
-				_putchar(character);
-				len++;
-			}
-			else if (format[i] == '%')
-			{
-				_putchar('%');
-				len++;
-			}
-			else
-			{
-				_putchar('%');
-				_putchar(format[i]);
-				len++;
-			}
-		}
-		else
-		{
-			_putchar(format[i]);
-			len++;
+    for (int i = 0; format[i] != '\0'; i++)
+    {
+        if (format[i] == '%')
+        {
+            i++;
+            if (format[i] == '\0')
+                break;
 
-		}
-	}
-	va_end(arg_list);
-	return (len);
+            if (format[i] == 'c')
+            {
+                char c = va_arg(arg_list, int);
+                putchar(c);
+                chars_printed++;
+            }
+            else if (format[i] == 's')
+            {
+                char *str = va_arg(arg_list, char *);
+                for (int j = 0; str[j] != '\0'; j++)
+                {
+                    putchar(str[j]);
+                    chars_printed++;
+                }
+            }
+            else if (format[i] == '%')
+            {
+                putchar('%');
+                chars_printed++;
+            }
+            else
+            {
+                putchar('%');
+                putchar(format[i]);
+                chars_printed += 2;
+            }
+        }
+        else
+        {
+            putchar(format[i]);
+            chars_printed++;
+        }
+    }
 
+    va_end(arg_list);
+    return chars_printed;
 }
+
