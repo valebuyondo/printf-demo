@@ -75,11 +75,6 @@ int _printf(const char *format, ...)
                     count += print_string("(null)");
                 }
             }
-            else if (*format == 'd' || *format == 'i')
-            {
-                intValue = va_arg(args, int);
-                count += print_integer(intValue);
-            }
             else
             {
                 count += _putchar('%');
