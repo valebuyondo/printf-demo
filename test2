@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 
+
 int print_string(char *str)
 {
     int len = 0;
@@ -51,14 +52,7 @@ int _printf(const char *format, ...)
         if (*format == '%')
         {
             format++;
-            if (*format == '\0')
-                break;
-
-            if (*format == '%')
-            {
-                count += _putchar('%');
-            }
-            else if (*format == 'c')
+            if (*format == 'c')
             {
                 intValue = va_arg(args, int);
                 count += _putchar(intValue);
@@ -66,14 +60,11 @@ int _printf(const char *format, ...)
             else if (*format == 's')
             {
                 stringValue = va_arg(args, char*);
-                if (stringValue)
-                {
-                    count += print_string(stringValue);
-                }
-                else
-                {
-                    count += print_string("(null)");
-                }
+                count += print_string(stringValue);
+            }
+            else if (*format == '%')
+            {
+                count += _putchar('%');
             }
             else if (*format == 'd' || *format == 'i')
             {
@@ -82,7 +73,6 @@ int _printf(const char *format, ...)
             }
             else
             {
-                count += _putchar('%');
                 count += _putchar(*format);
             }
         }
