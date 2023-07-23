@@ -1,6 +1,10 @@
 #include "main.h"
 #include <stdarg.h>
 
+int _putchar(char c)
+{
+    return write(1, &c, 1);
+}
 
 int print_string(char *str)
 {
@@ -52,31 +56,28 @@ int _printf(const char *format, ...)
         if (*format == '%')
         {
             format++;
-            switch (*format)
+            if (*format == 'c')
             {
-            case 'c':
                 intValue = va_arg(args, int);
                 count += _putchar(intValue);
-                break;
-
-            case 's':
+            }
+            else if (*format == 's')
+            {
                 stringValue = va_arg(args, char*);
                 count += print_string(stringValue);
-                break;
-
-            case '%':
+            }
+            else if (*format == '%')
+            {
                 count += _putchar('%');
-                break;
-
-            case 'd':
-            case 'i':
+            }
+            else if (*format == 'd' || *format == 'i')
+            {
                 intValue = va_arg(args, int);
                 count += print_integer(intValue);
-                break;
-
-            default:
+            }
+            else
+            {
                 count += _putchar(*format);
-                break;
             }
         }
         else
