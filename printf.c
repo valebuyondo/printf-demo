@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 
+
 int print_string(char *str)
 {
     int len = 0;
@@ -41,8 +42,6 @@ int _printf(const char *format, ...)
 {
     va_list args;
     int count = 0;
-    char *stringValue;
-    int intValue;
 
     va_start(args, format);
 
@@ -54,18 +53,14 @@ int _printf(const char *format, ...)
             if (*format == '\0')
                 break;
 
-            if (*format == '%')
+            if (*format == 'c')
             {
-                count += _putchar('%');
-            }
-            else if (*format == 'c')
-            {
-                intValue = va_arg(args, int);
+                int intValue = va_arg(args, int);
                 count += _putchar(intValue);
             }
             else if (*format == 's')
             {
-                stringValue = va_arg(args, char*);
+                char *stringValue = va_arg(args, char*);
                 if (stringValue)
                 {
                     count += print_string(stringValue);
@@ -74,6 +69,10 @@ int _printf(const char *format, ...)
                 {
                     count += print_string("(null)");
                 }
+            }
+            else if (*format == '%')
+            {
+                count += _putchar('%');
             }
             else
             {
