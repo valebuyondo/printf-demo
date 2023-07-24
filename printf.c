@@ -50,54 +50,53 @@ int print_integer(int n)
  */
 int _printf(const char *format, ...)
 {
-	va_list args;
-	int count = 0;
+    va_list args;
+    int count = 0;
+    va_start(args, format);
 
-	va_start(args, format);
-	
-	while (*format)
-	{
-		if (*format == '%')
-		{
-			format++;
-			if (*format == '\0')
-				break;
-			if (*format == 'c')
-			{
-				int intValue = va_arg(args, int);
-				
-				count += _putchar(intValue);
-			}
-			else if (*format == 's')
-			{
-				char *stringValue = va_arg(args, char*);
+    while (*format)
+    {
+        if (*format == '%')
+        {
+            format++;
+            if (*format == '\0')
+                break;
+            if (*format == 'c')
+            {
+                int intValue = va_arg(args, int);
+                count += _putchar(intValue);
+            }
+            else if (*format == 's')
+            {
+                char *stringValue = va_arg(args, char *);
 
-				if (stringValue)
-				{
-					count += print_string(stringValue);
-				}
-				else
-				{
-					count += print_string("(null)");
-				}
-			}
-			else if (*format == '%')
-			{
-				count += _putchar('%');
-			}
-			else
-			{
-				count += _putchar('%');
-				count += _putchar(*format);
-			}
-		}
-		else
-		{
-			count += _putchar(*format);
-		}
-		format++;
-	}
-	va_end(args);
-	return (count);
+                if (stringValue)
+                {
+                    count += print_string(stringValue);
+                }
+                else
+                {
+                    count += print_string("(null)");
+                }
+            }
+            else if (*format == '%')
+            {
+                count += _putchar('%');
+            }
+            else
+            {
+                count += _putchar('%');
+                count += _putchar(*format);
+            }
+        }
+        else
+        {
+            count += _putchar(*format);
+        }
+        format++;
+    }
+
+    va_end(args);
+    return count;
 }
 
