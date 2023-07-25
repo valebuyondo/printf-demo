@@ -61,7 +61,11 @@ int _printf(const char *format, ...)
             format++;
             if (*format == '\0')
                 break;
-            if (*format == 'c')
+	    if (*format == '%')
+            {
+                count += _putchar('%');
+            }
+            else if (*format == 'c')
             {
                 int intValue = va_arg(args, int);
                 count += _putchar(intValue);
@@ -82,12 +86,12 @@ int _printf(const char *format, ...)
             /**else if (*format == '%')
             {
                 count += _putchar('%');
-            }
+            }**/
             else
             {
                 count += _putchar('%');
                 count += _putchar(*format);
-            }**/
+            }
         }
         else
         {
