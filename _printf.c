@@ -1,8 +1,6 @@
-
-
 #include "main.h"
-#include <stdarg.h>
 #include <stdlib.h>
+#include <stdio.h>
 /**
 * printIdentifiers - output data based on special characters
 * @next: character after the %
@@ -34,10 +32,15 @@ int printIdentifiers(char next, va_list arg)
 	return (0);
 }
 /**
- * _printf - emulates printf specifiers
- * @format: format specifiers
- * Return: returns the Arguments provide
- */
+* _printf - works like  printf from stdio
+* Description: produces output according to a format
+* write output to stdout, the standard output stream
+* @format: character string composed of zero or more directives
+*
+* Return: the number of characters printed
+* (excluding the null byte used to end output to strings)
+* return -1 for incomplete identifier error
+*/
 int _printf(const char *format, ...)
 {
 	unsigned int i;
