@@ -5,8 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0d10443-d946-41cb-a678-1a839ce3407e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.printf.c.swp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vscode/c_cpp_properties.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/print_functions.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/print_functions_derived.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/print_hexadecimal.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_big.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_dec.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_formats.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_hex.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_hex2.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_nbr.c" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_printf.c" beforeDir="false" afterPath="$PROJECT_DIR$/_printf.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_putchar.c" beforeDir="false" afterPath="$PROJECT_DIR$/_putchar.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_putstr.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_unsigned.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_void.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.h" beforeDir="false" afterPath="$PROJECT_DIR$/main.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +47,6 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/Users/lenovo/IdeaProjects/printf",
     "node.js.detected.package.eslint": "true",
@@ -52,7 +72,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1690276968365</updated>
-      <workItem from="1690276972075" duration="8213000" />
+      <workItem from="1690276972075" duration="9216000" />
     </task>
     <servers />
   </component>

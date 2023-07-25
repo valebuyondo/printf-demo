@@ -1,13 +1,7 @@
 #include "main.h"
+#include <unistd.h>
 
-/**
- * _putchar - Write a character to the standard output.
- * @c: The character to be written.
- *
- * Return: Always 1 (success).
- */
-int _putchar(int c)
+int _putchar(char c)
 {
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }
