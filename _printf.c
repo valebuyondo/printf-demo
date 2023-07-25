@@ -2,12 +2,12 @@
 
 /**
  * _printf - Print formatted data to the standard output.
- * @str: The format string.
+ * @format: The format string.
  * @...: The variable arguments to be formatted and printed.
  *
  * Return: The number of characters printed.
  */
-int _printf(const char *str, ...)
+int _printf(const char *format, ...)
 {
 	va_list ap;
 	int len;
@@ -15,16 +15,16 @@ int _printf(const char *str, ...)
 
 	i = 0;
 	len = 0;
-	va_start(ap, str);
-	while (str[i])
+	va_start(ap, format);
+	while (format[i])
 	{
-		if (str[i] == '%')
+		if (format[i] == '%')
 		{
 			i++;
-			len += _formats(ap, str[i]);
+			len += _formats(ap, format[i]);
 		}
 		else
-			len += _putchar(str[i]);
+			len += _putchar(format[i]);
 		i++;
 	}
 	va_end(ap);
