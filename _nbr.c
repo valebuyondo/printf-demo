@@ -19,12 +19,12 @@ int _nbr(long int nbr)
 	if (nbr < 0)
 	{
 		_putchar('-');
-		_putnbr(-nbr);
+		_nbr(-nbr);
 	}
 	else if (nbr > 9)
 	{
-		_putnbr(nbr / 10);
-		_putnbr(nbr % 10);
+		_nbr(nbr / 10);
+		_nbr(nbr % 10);
 	}
 	return (len);
 }
