@@ -45,11 +45,4 @@ int print_hex(va_list arg);
 int print_HEX(va_list arg);
 int print_STR (va_list arg);
 
-typedef struct identifierStruct
-{
-	char *indentifier;
-
-	int (*printer)(va_list);
-} identifierStruct;
-
 #endif
