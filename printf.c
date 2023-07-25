@@ -56,7 +56,7 @@ int print_integer(int n)
 int printIdentifiers(char next, va_list arg)
 {
 	int functsIndex; identifierStruct functs[] = {
-		{"c", print_char},
+		{"c", printf_char},
 		{"s", print_str},
 		{"d", print_int},
 		{"i", print_int},
