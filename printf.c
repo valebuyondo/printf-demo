@@ -57,14 +57,14 @@ int printIdentifiers(char next, va_list arg)
 {
 	int functsIndex; identifierStruct functs[] = {
 		{"c", printf_char},
-		{"s", print_str},
-		{"d", print_int},
-		{"i", print_int},
-		{"u", print_unsigned},
-		{"b", print_unsignedToBinary},
-		{"o", print_oct},
-		{"x", print_hex},
-		{"X", print_HEX},
+		{"s", printf_string},
+		{"d", printf_int},
+		{"i", printf_int},
+		{"u", printf_unsigned},
+		{"b", printf_bin},
+		{"o", printf_oct},
+		{"x", printf_hex},
+		{"X", printf_HEX},
 		{"S", print_STR},
 		{NULL, NULL}
 	};
