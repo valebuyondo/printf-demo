@@ -2,50 +2,6 @@
 #include <stdarg.h>
 #include <stdlib.h>
 /**
- * print_string - prints string
- * @str: string to be printing
- * Return: returns the len
- */
-
-int print_string(char *str)
-{
-	int len = 0;
-
-	while (str && *str)
-	{
-		len += _putchar(*str);
-		str++;
-	}
-	return (len);
-}
-/**
- * print_integer - prints an integer
- * @n: integer to be printed
- * Return: returns the number of integers printed
- */
-int print_integer(int n)
-{
-	unsigned int num;
-	int count = 0;
-	
-	if(n < 0)
-	{
-		count += _putchar('-');
-		num = -n;
-	}
-	else
-	{
-		num = n;
-	}
-	if (num / 10)
-	{
-		count += print_integer(num / 10);
-	}
-	count += _putchar((num % 10) + '0');
-	return (count);
-}
-
-/**
 * printIdentifiers - output data based on special characters
 * @next: character after the %
 * @arg: argument for the indentifier
