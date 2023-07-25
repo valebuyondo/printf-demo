@@ -79,7 +79,7 @@ int _printf(const char *format, ...)
                     count += print_string("(null)");
                 }
             }
-            else if (*format == '%')
+            /**else if (*format == '%')
             {
                 count += _putchar('%');
             }
@@ -87,8 +87,7 @@ int _printf(const char *format, ...)
             {
                 count += _putchar('%');
                 count += _putchar(*format);
-		break;
-            }
+            }**/
         }
         else
         {
