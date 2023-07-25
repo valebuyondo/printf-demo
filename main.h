@@ -1,12 +1,9 @@
 #ifndef MAIN_H
 #define MAIN_H
 #include <stdarg.h>
-/**
- * struct format - match the conversion specifiers for printf
- * @id: type char pointer of the specifier i.e (l, h) for (d, i, u, o, x, X)
- * @f: type pointer to function for the conversion specifier
- *
- */
+#include <unistd.h>
+#include <stdlib.h>
+
 typedef struct identifierStruct
 {
 	char *indentifier;
@@ -15,12 +12,6 @@ typedef struct identifierStruct
 } identifierStruct;
 
 
-/**typedef struct format
-{
-	char *id;
-	int (*f)();
-} convert_match;
-**/
 int _putchar(char c);
 int print_int(va_list arg);
 int print_unsigned(va_list arg);
@@ -38,7 +29,6 @@ int print_hex_base(va_list arg, char _case);
 int print_hex(va_list arg);
 int print_HEX(va_list arg);
 int printIdentifiers(char next, va_list arg);
-
 int _printf(const char *format, ...);
 
 
