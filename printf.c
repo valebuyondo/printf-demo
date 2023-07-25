@@ -9,73 +9,36 @@
 * (excluding the null byte used to end output to strings)
 */
 
-int printIdentifiers(char next, va_list arg)
+void print_buffer(char buffer[], int *buff_ind);
+int handle_write_char(char c, char buffer[],
+	int flags, int width, int precision, int size)
+{ /* char is stored at left and paddind at buffer's right */
+	int i = 0;
+	char padd = ' ';
+
+	int _printf(const char *format, ...)
 {
-	int functsIndex; identifierStruct functs[] = {
-		{"c", print_char},
-		{"s", print_str},
-		{"d", print_int},
-		{"i", print_int},
-		{"u", print_unsigned},
-		{"b", print_unsignedToBinary},
-		{"o", print_oct},
-		{"x", print_hex},
-		{"X", print_HEX},
-		{"S", print_STR},
-		{NULL, NULL}
-	};
-	for (functsIndex = 0; functs[functsIndex].indentifier != NULL; functsIndex++)
-	{
-		if (functs[functsIndex].indentifier[0] == next)
-			return (functs[functsIndex].printer(arg));
-	}
-	return (0);
-}
-/**
- * _printf - emulates printf specifiers
- * @format: format specifiers
- * Return: returns the Arguments provide
- */
-int _printf(const char *format, ...)
-{
-	unsigned int i;
-
-	int identifierPrinted = 0, charPrinted = 0;
-
-	va_list arg;
-
-	va_start(arg, format);
+	int i, printed = 0, printed_chars = 0;
+	int flags, width, precision, size, buff_ind = 0;
+	va_list list;
+	char buffer[BUFF_SIZE];
 
 	if (format == NULL)
 		return (-1);
-	for (i = 0; format[i] != '\0'; i++)
+
+	va_start(list, format);
+
+	for (i = 0; format && format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
 		{
-			_putchar(format[i]);
-			charPrinted++;
-			continue;
+			buffer[buff_ind++] = format[i];
+			if (buff_ind == BUFF_SIZE)
+				print_buffer(buffer, &buff_ind);
+			/* write(1, &format[i], 1);*/
+			printed_chars++;
 		}
-		if (format[i + 1] == '%')
+		else
 		{
-			_putchar('%');
-			charPrinted++;
-			i++;
-			continue;
-		}
-		if (format[i + 1] == '\0')
-			return (-1);
-		identifierPrinted = printIdentifiers(format[i + 1], arg);
-		if (identifierPrinted == -1 || identifierPrinted != 0)
-			i++;
-		if (identifierPrinted > 0)
-			charPrinted += identifierPrinted;
-		if (identifierPrinted == 0)
-		{
-			_putchar('%');
-			charPrinted++;
-		}
-	}
-	va_end(arg);
-	return (charPrinted);
-}
+			print_buffer(buffer, &buff_ind);
+
