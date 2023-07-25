@@ -16,12 +16,12 @@
  *
  */
 
-typedef struct format
+/**typedef struct format
 {
 	char *id;
 	int (*f)();
 } convert_match;
-
+**/
 int printf_pointer(va_list val);
 int printf_hex_aux(unsigned long int num);
 int printf_HEX_aux(unsigned int num);
@@ -45,5 +45,12 @@ int printf_char(va_list val);
 int printf_string(va_list val);
 int _putchar(char c);
 int _printf(const char *format, ...);
+
+typedef struct identifierStruct
+{
+	char *indentifier;
+
+	int (*printer)(va_list);
+} identifierStruct;
 
 #endif
